@@ -10,11 +10,12 @@ st.markdown("""
     .stSlider > div > div > div > div > div {
         background-color: #9BFF00;
     }
-    .stSlider > div > div > div[data-baseweb="slider"] > div > div {
-        color: #9BFF00;
+    .stSlider [data-testid="stTickBarMin"],
+    .stSlider [data-testid="stTickBarMax"] {
+        color: #9BFF00 !important;
     }
-    .stSlider > div > div > div > div[data-testid="stTickBar"] > div {
-        color: #9BFF00;
+    .stSlider span[data-baseweb="typography"] {
+        color: #9BFF00 !important;
     }
 </style>
 """, unsafe_allow_html=True)
