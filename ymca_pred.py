@@ -5,10 +5,16 @@ import plotly.graph_objects as go
 st.markdown("""
 <style>
     .stSlider > div > div > div > div {
-        background-color: green;
+        background-color: #9BFF00;
     }
     .stSlider > div > div > div > div > div {
-        background-color: green;
+        background-color: #9BFF00;
+    }
+    .stSlider > div > div > div[data-baseweb="slider"] > div > div {
+        color: #9BFF00;
+    }
+    .stSlider > div > div > div > div[data-testid="stTickBar"] > div {
+        color: #9BFF00;
     }
 </style>
 """, unsafe_allow_html=True)
