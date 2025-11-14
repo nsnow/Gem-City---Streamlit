@@ -1,25 +1,6 @@
 import streamlit as st
 import plotly.graph_objects as go
 
-# Custom CSS to make sliders green
-st.markdown("""
-<style>
-    .stSlider > div > div > div > div {
-        background-color: #9BFF00;
-    }
-    .stSlider > div > div > div > div > div {
-        background-color: #9BFF00;
-    }
-    .stSlider [data-testid="stTickBarMin"],
-    .stSlider [data-testid="stTickBarMax"] {
-        color: #9BFF00 !important;
-    }
-    .stSlider span[data-baseweb="typography"] {
-        color: #9BFF00 !important;
-    }
-</style>
-""", unsafe_allow_html=True)
-
 st.title("YMCA Revenue Calculator")
 
 st.sidebar.header("User Input Features")
