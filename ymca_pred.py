@@ -9,13 +9,18 @@ st.sidebar.header("User Input Features")
 ergs = st.sidebar.slider("Ergs (10 - 14)", min_value=10, max_value=14, value=10, step=1)
 
 # YMCA Participants
-ymca_participants = st.sidebar.slider("YMCA Participants ($60)", min_value=0, max_value=ergs, value=5, step=1)
-
+ymca_1 = st.sidebar.slider("Youth Tuesday Training ($60)", min_value=0, max_value=ergs, value=5, step=1)
+ymca_2 = st.sidebar.slider("Youth Thursday Training ($60)", min_value=0, max_value=ergs, value=5, step=1)
+ymca_3 = st.sidebar.slider("Masters Tuesday Training ($60)", min_value=0, max_value=ergs, value=0, step=1)
+ymca_4 = st.sidebar.slider("Masters Thursday Training ($60)", min_value=0, max_value=ergs, value=0, step=1)
 # Non-YMCA Participants
-non_ymca_participants = st.sidebar.slider("Non-YMCA Participants ($70)", min_value=0, max_value=ergs, value=0, step=1)
+non_ymca_1 = st.sidebar.slider("Non-YMCA Youth Tuesday ($70)", min_value=0, max_value=ergs-ymca_1, value=0, step=1)
+non_ymca_2 = st.sidebar.slider("Non-YMCA Youth Thursday ($70)", min_value=0, max_value=ergs-ymca_2, value=0, step=1)
+non_ymca_3 = st.sidebar.slider("Non-YMCA Masters Tuesday ($70)", min_value=0, max_value=ergs-ymca_3, value=0, step=1)
+non_ymca_4 = st.sidebar.slider("Non-YMCA Masters Thursday ($70)", min_value=0, max_value=ergs-ymca_4, value=0, step=1)
 
-# Sessions
-sessions = st.sidebar.slider("Sessions (1 - 4)", min_value=1, max_value=4, value=1, step=1)
+ymca_participants = ymca_1 + ymca_2 + ymca_3 + ymca_4
+non_ymca_participants = non_ymca_1 + non_ymca_2 + non_ymca_3 + non_ymca_4
 
 # Months
 months = st.sidebar.slider("Months (1 - 2)", min_value=1, max_value=2, value=1, step=1)
@@ -29,8 +34,8 @@ gem_city_fee_percentage = 100 - (coach_fee_percentage + asst_fee_percentage)
 ymca_cost = 60
 non_ymca_cost = 70
 
-total_participants = (ymca_participants + non_ymca_participants) * sessions * months
-total_rev = (ymca_participants * ymca_cost + non_ymca_participants * non_ymca_cost) * sessions * months
+total_participants = (ymca_participants + non_ymca_participants) * months
+total_rev = (ymca_participants * ymca_cost + non_ymca_participants * non_ymca_cost) * months
 
 # Revenue breakdown visualization
 st.header("Revenue Breakdown")
@@ -45,7 +50,7 @@ with col2:
     st.write(f"YMCA Fee (40%): ${total_rev * 0.40:,.2f}")
     st.write(f"Gem City Fee (60%): ${total_rev * 0.60:,.2f}")
     st.write(f"Head Coach Fee ({coach_fee_percentage}%): ${(total_rev * .6) *(coach_fee_percentage / 100):,.2f}")
-    st.write(f"Head Coach Fee per Hour: ${(total_rev * .6) *(coach_fee_percentage / 100) / ((sessions*1.5)*months):,.2f}")
+    st.write(f"Head Coach Fee per Hour: ${(total_rev * .6) *(coach_fee_percentage / 100) / (((sessions*1.5)*4)*months):,.2f}")
     st.write(f"Assistant Coach Fee ({asst_fee_percentage}%): ${(total_rev * .6) *(asst_fee_percentage / 100):,.2f}")
     st.write(f"Gem City Revenue ({gem_city_fee_percentage}%): ${(total_rev * .6) * (gem_city_fee_percentage / 100):,.2f}")
 
