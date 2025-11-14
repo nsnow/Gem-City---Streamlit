@@ -6,19 +6,19 @@ st.title("YMCA Revenue Calculator")
 st.sidebar.header("User Input Features")
 
 #Ergs
-ergs = st.sidebar.selectbox("Ergs (10 - 14)", list(range(10, 15)))
+ergs = st.sidebar.slider("Ergs (10 - 14)", min_value=10, max_value=14, value=10, step=1)
 
 # YMCA Participants
-ymca_participants = st.sidebar.number_input("YMCA Participants ($60)", min_value=0, max_value=ergs, value=5, step=1)
+ymca_participants = st.sidebar.slider("YMCA Participants ($60)", min_value=0, max_value=ergs, value=5, step=1)
 
 # Non-YMCA Participants
-non_ymca_participants = st.sidebar.number_input("Non-YMCA Participants ($70)", min_value=0, max_value=ergs, value=0, step=1)
+non_ymca_participants = st.sidebar.slider("Non-YMCA Participants ($70)", min_value=0, max_value=ergs, value=0, step=1)
 
 # Sessions
-sessions = st.sidebar.selectbox("Sessions (1 - 4)", [1, 2, 3, 4])
+sessions = st.sidebar.slider("Sessions (1 - 4)", min_value=1, max_value=4, value=1, step=1)
 
 # Months
-months = st.sidebar.selectbox("Months (1 - 2)", [1, 2])
+months = st.sidebar.slider("Months (1 - 2)", min_value=1, max_value=2, value=1, step=1)
 
 # Coach Fee %
 coach_fee_percentage = st.sidebar.slider("Coach Fee Percentage", min_value=0, max_value=100, value=50, step=1)
