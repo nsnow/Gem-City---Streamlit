@@ -105,3 +105,84 @@ with col1:
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
+# Line graph showing revenue progression
+st.header("Revenue Progression")
+
+# Create data for line graph from 0 to total_participants
+participants_range = list(range(0, total_participants + 1))
+
+# Calculate revenue for each participant count
+# Assuming proportional distribution between YMCA and non-YMCA participants
+if total_participants > 0:
+    ymca_ratio = (ymca_participants * sessions * months) / total_participants
+    non_ymca_ratio = (non_ymca_participants * sessions * months) / total_participants
+else:
+    ymca_ratio = 0
+    non_ymca_ratio = 0
+
+gem_city_fee_line = []
+head_coach_fee_line = []
+asst_coach_fee_line = []
+gem_city_revenue_line = []
+
+for p in participants_range:
+    # Calculate revenue for p participants
+    ymca_p = p * ymca_ratio
+    non_ymca_p = p * non_ymca_ratio
+    rev = (ymca_p * ymca_cost + non_ymca_p * non_ymca_cost)
+    
+    gem_city_fee_val = rev * 0.60
+    head_coach_fee_val = (rev * .6) * (coach_fee_percentage / 100)
+    asst_coach_fee_val = (rev * .6) * (asst_fee_percentage / 100)
+    gem_city_revenue_val = (rev * .6) * (gem_city_fee_percentage / 100)
+    
+    gem_city_fee_line.append(gem_city_fee_val)
+    head_coach_fee_line.append(head_coach_fee_val)
+    asst_coach_fee_line.append(asst_coach_fee_val)
+    gem_city_revenue_line.append(gem_city_revenue_val)
+
+# Create line graph
+fig2 = go.Figure()
+
+fig2.add_trace(go.Scatter(
+    x=participants_range,
+    y=gem_city_fee_line,
+    mode='lines',
+    name='Gem City Fee (60%)',
+    line=dict(color='orange', width=2)
+))
+
+fig2.add_trace(go.Scatter(
+    x=participants_range,
+    y=head_coach_fee_line,
+    mode='lines',
+    name=f'Head Coach Fee ({coach_fee_percentage}%)',
+    line=dict(color='green', width=2)
+))
+
+fig2.add_trace(go.Scatter(
+    x=participants_range,
+    y=asst_coach_fee_line,
+    mode='lines',
+    name=f'Assistant Coach Fee ({asst_fee_percentage}%)',
+    line=dict(color='purple', width=2)
+))
+
+fig2.add_trace(go.Scatter(
+    x=participants_range,
+    y=gem_city_revenue_line,
+    mode='lines',
+    name=f'Gem City Revenue ({gem_city_fee_percentage}%)',
+    line=dict(color='red', width=2)
+))
+
+fig2.update_layout(
+    title='Revenue Progression by Participants',
+    xaxis_title='Total Participants',
+    yaxis_title='Revenue ($)',
+    hovermode='x unified',
+    showlegend=True
+)
+
+st.plotly_chart(fig2, use_container_width=True)
