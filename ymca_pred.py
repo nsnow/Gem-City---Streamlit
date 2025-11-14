@@ -101,7 +101,15 @@ with col1:
         barmode='group',
         hovermode='x unified',
         showlegend=True,
-        xaxis=dict(showticklabels=False)
+        xaxis=dict(showticklabels=False),
+        legend=dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.2,
+            xanchor="center",
+            x=0.5
+        ),
+        height=600
     )
 
     st.plotly_chart(fig, use_container_width=True)
@@ -182,7 +190,15 @@ fig2.update_layout(
     xaxis_title='Total Participants',
     yaxis_title='Revenue ($)',
     hovermode='x unified',
-    showlegend=True
+    showlegend=True,
+    legend=dict(
+        orientation="h",
+        yanchor="top",
+        y=-0.2,
+        xanchor="center",
+        x=0.5
+    ),
+    height=600
 )
 
 st.plotly_chart(fig2, use_container_width=True)
