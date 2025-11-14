@@ -63,7 +63,7 @@ with col1:
         x=[total_participants],
         y=[total_rev],
         name='Gross Revenue',
-        marker_color='lightblue'
+        marker_color='#9BFF00'
     ))
 
     fig.add_trace(go.Bar(
@@ -158,7 +158,7 @@ fig2.add_trace(go.Scatter(
     y=gem_city_fee_line,
     mode='lines',
     name='Gem City Fee (60%)',
-    line=dict(color='orange', width=2)
+    line=dict(color='#9BFF00', width=2)
 ))
 
 fig2.add_trace(go.Scatter(
