@@ -45,12 +45,12 @@ col1, col2 = st.columns([2, 1])
 with col2:
     st.subheader("Calculated Cost")
     st.write(f"Total Participants: {total_participants}")
-    st.write(f"Youth Participants: {(ymca_participants*sessions*months)/2}")
+    st.write(f"Youth Participants: {(ymca_participants*months)/2}")
     st.write(f"Gross Revenue: ${total_rev:,.2f}")
     st.write(f"YMCA Fee (40%): ${total_rev * 0.40:,.2f}")
     st.write(f"Gem City Fee (60%): ${total_rev * 0.60:,.2f}")
     st.write(f"Head Coach Fee ({coach_fee_percentage}%): ${(total_rev * .6) *(coach_fee_percentage / 100):,.2f}")
-    st.write(f"Head Coach Fee per Hour: ${(total_rev * .6) *(coach_fee_percentage / 100) / (((sessions*1.5)*4)*months):,.2f}")
+    st.write(f"Head Coach Fee per Hour: ${(total_rev * .6) *(coach_fee_percentage / 100) / (((6*4)*months):,.2f}")
     st.write(f"Assistant Coach Fee ({asst_fee_percentage}%): ${(total_rev * .6) *(asst_fee_percentage / 100):,.2f}")
     st.write(f"Gem City Revenue ({gem_city_fee_percentage}%): ${(total_rev * .6) * (gem_city_fee_percentage / 100):,.2f}")
 
@@ -129,8 +129,8 @@ participants_range = list(range(0, total_participants + 1))
 # Calculate revenue for each participant count
 # Assuming proportional distribution between YMCA and non-YMCA participants
 if total_participants > 0:
-    ymca_ratio = (ymca_participants * sessions * months) / total_participants
-    non_ymca_ratio = (non_ymca_participants * sessions * months) / total_participants
+    ymca_ratio = (ymca_participants * months) / total_participants
+    non_ymca_ratio = (non_ymca_participants * months) / total_participants
 else:
     ymca_ratio = 0
     non_ymca_ratio = 0
