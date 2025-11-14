@@ -11,8 +11,8 @@ ergs = st.sidebar.slider("Ergs (10 - 14)", min_value=10, max_value=14, value=10,
 # YMCA Participants
 ymca_1 = st.sidebar.slider("Youth Tuesday Training ($60)", min_value=0, max_value=ergs, value=5, step=1)
 ymca_2 = st.sidebar.slider("Youth Thursday Training ($60)", min_value=0, max_value=ergs, value=5, step=1)
-ymca_3 = st.sidebar.slider("Masters Tuesday Training ($60)", min_value=0, max_value=ergs, value=0, step=1)
-ymca_4 = st.sidebar.slider("Masters Thursday Training ($60)", min_value=0, max_value=ergs, value=0, step=1)
+ymca_3 = st.sidebar.slider("Masters Tuesday Training ($60)", min_value=0, max_value=ergs, value=5, step=1)
+ymca_4 = st.sidebar.slider("Masters Thursday Training ($60)", min_value=0, max_value=ergs, value=5, step=1)
 # Non-YMCA Participants
 non_ymca_1 = st.sidebar.slider("Non-YMCA Youth Tuesday ($70)", min_value=0, max_value=ergs-ymca_1, value=0, step=1)
 non_ymca_2 = st.sidebar.slider("Non-YMCA Youth Thursday ($70)", min_value=0, max_value=ergs-ymca_2, value=0, step=1)
