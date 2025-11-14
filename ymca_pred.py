@@ -50,7 +50,7 @@ with col2:
     st.write(f"YMCA Fee (40%): ${total_rev * 0.40:,.2f}")
     st.write(f"Gem City Fee (60%): ${total_rev * 0.60:,.2f}")
     st.write(f"Head Coach Fee ({coach_fee_percentage}%): ${(total_rev * .6) *(coach_fee_percentage / 100):,.2f}")
-    st.write(f"Head Coach Fee per Hour: ${(total_rev * .6) *(coach_fee_percentage / 100) / (((6*4)*months):,.2f}")
+    st.write(f"Head Coach Fee per Hour: ${(total_rev * .6) *(coach_fee_percentage / 100) / (6*4*months):,.2f}")
     st.write(f"Assistant Coach Fee ({asst_fee_percentage}%): ${(total_rev * .6) *(asst_fee_percentage / 100):,.2f}")
     st.write(f"Gem City Revenue ({gem_city_fee_percentage}%): ${(total_rev * .6) * (gem_city_fee_percentage / 100):,.2f}")
 
