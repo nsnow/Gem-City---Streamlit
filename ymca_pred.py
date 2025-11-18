@@ -1,11 +1,11 @@
 import streamlit as st
 import plotly.graph_objects as go
-import streamlit_analytics
+# import streamlit_analytics
 
 st.title("YMCA Revenue Calculator")
 
 st.sidebar.header("User Input Features")
-streamlit_analytics.start_tracking(save_to_json='ymca_pred_analytics.json')
+# streamlit_analytics.start_tracking(save_to_json='ymca_pred_analytics.json')
 #Ergs
 ergs = st.sidebar.slider("Ergs (10 - 14)", min_value=10, max_value=14, value=10, step=1)
 
@@ -210,4 +210,4 @@ fig2.update_layout(
 
 st.plotly_chart(fig2, use_container_width=True)
 
-streamlit_analytics.stop_tracking(save_to_json='ymca_pred_analytics.json')
+# streamlit_analytics.stop_tracking(save_to_json='ymca_pred_analytics.json')
